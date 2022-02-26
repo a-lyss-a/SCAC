@@ -8,11 +8,11 @@ export default function Earth() {
     const [countries, setCountries] = useState({ features: []});
     const [hoverD, setHoverD] = useState();
     
-    // We dont have this dataset, replace with UNESCO ? 
-    // useEffect(() => {
-    //   // load data
-    //   fetch('../datasets/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(setCountries);
-    // }, []);
+    
+    useEffect(() => {
+      // load data
+      fetch('https://vasturiano.github.io/react-globe.gl/example/datasets/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(setCountries);
+    }, []);
 
     
     const colorScale = d3.scaleSequentialSqrt(d3.interpolateYlOrRd);
@@ -39,8 +39,6 @@ export default function Earth() {
       polygonStrokeColor={() => '#111'}
       polygonLabel={({ properties: d }) => `
         <b>${d.ADMIN} (${d.ISO_A2}):</b> <br />
-        GDP: <i>${d.GDP_MD_EST}</i> M$<br/>
-        Population: <i>${d.POP_EST}</i>
       `}
       onPolygonHover={setHoverD}
       polygonsTransitionDuration={300}
