@@ -16,15 +16,12 @@ def country_sites(country):
                 sites.append(r.get("name"))
     return sites
 
-def get_Image_URL(name):
-    for r in response:
-        if r.get("name") == name:
-            return r.get("image_url")
-
 def gallery(country):
     results = {}
     for n in country_sites(country):
-        results[n] = get_Image_URL(n)
+        for r in response:
+            if r.get("name") == n:
+                results[n] = (r.get("image_url"), r.get("category"))
     return results
 
 def details(site):
@@ -43,16 +40,13 @@ def details(site):
 #     f.write(results)
 #     f.close
 
-g = open("site-request.txt", "r")
-site = g.read().strip()
-g.close()
-# site = country_sites(country)[1]
+#country = "cn"
 
 app = flask.Flask(__name__)
 
 @app.route("/gallery")
 def gallery_query():
-    # results = zip(country)
+    # results = gallery(country)
     # html_string = ""
     # sites = list(results.keys())
     # pictures = list(results.values())
@@ -60,11 +54,9 @@ def gallery_query():
     #     html_string += "<div><h3>{}</h3><img src='{}' alt='Image not found'></div>".format(sites[i],pictures[i])
     # return html_string
     results = json.dumps(gallery(flask.request.args.get("query")))
-    # print(requests.args.get("query"))
     return results
 
 @app.route("/details")
 def details_query():
     results = json.dumps(details(flask.request.args.get("query")))
-    # print(results)
     return results
