@@ -9,6 +9,7 @@ import LayoutDefault from './layouts/LayoutDefault';
 
 // Views 
 import Home from './views/Home';
+import Earth from './components/Globe/Earth';
 
 // Initialize Google Analytics
 ReactGA.initialize(process.env.REACT_APP_GA_CODE);
@@ -32,6 +33,8 @@ const App = () => {
   }, [location]);
 
   return (
+    <div>
+    <Earth /> 
     <ScrollReveal
       ref={childRef}
       children={() => (
@@ -39,6 +42,7 @@ const App = () => {
           <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
         </Switch>
       )} />
+    </div>
   );
 }
 
