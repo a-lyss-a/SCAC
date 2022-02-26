@@ -18,3 +18,19 @@ def get_Image_URL(name):
     for r in response:
         if r.get("name") == name:
             return r.get("image_url")
+
+def zip(country):
+    results = {}
+    for n in country_sites(country):
+        results[n] = get_Image_URL(n)
+    return results
+
+def query(country):
+    results = json.dumps(zip(country))
+    f = open("query-results.json2", "w")
+    f.write(results)
+    f.close
+
+f = open("query-request.txt", "r")
+country = f.read().strip()
+query(country)
