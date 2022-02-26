@@ -43,10 +43,12 @@ app = Flask(__name__)
 # def hello_world():
 #     return "<p>Hello, World!</p>"
 def query(country):
-    results = zip(country)
-    html_string = ""
-    sites = list(results.keys())
-    pictures = list(results.values)
-    for i in range(len(results)):
-        html_string += "<div><h3>%s</h3><img src='%s' alt='Image not found'></div>".format(sites[i],pictures[i])
-    return html_string
+    # results = zip(country)
+    # html_string = ""
+    # sites = list(results.keys())
+    # pictures = list(results.values)
+    # for i in range(len(results)):
+    #     html_string += "<div><h3>%s</h3><img src='%s' alt='Image not found'></div>".format(sites[i],pictures[i])
+    # return html_string
+    results = json.dumps(zip(country))
+    return results
