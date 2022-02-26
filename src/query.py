@@ -1,4 +1,5 @@
-from flask import Flask
+import flask
+#from flask import Flask
 #from inspect import iscode
 from sre_parse import State
 import requests
@@ -42,33 +43,28 @@ def details(site):
 #     f.write(results)
 #     f.close
 
-f = open("query-request.txt", "r")
-country = f.read().strip()
-f.close()
-
 g = open("site-request.txt", "r")
 site = g.read().strip()
 g.close()
 # site = country_sites(country)[1]
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
-@app.route("/")
-# def hello_world():
-#     return "<p>Hello, World!</p>"
-# def gallery_query():
-#     # results = zip(country)
-#     # html_string = ""
-#     # sites = list(results.keys())
-#     # pictures = list(results.values())
-#     # for i in range(len(results)):
-#     #     html_string += "<div><h3>{}</h3><img src='{}' alt='Image not found'></div>".format(sites[i],pictures[i])
-#     # return html_string
-#     results = json.dumps(gallery(country))
-#     #print(results)
-#     return results
+@app.route("/gallery")
+def gallery_query():
+    # results = zip(country)
+    # html_string = ""
+    # sites = list(results.keys())
+    # pictures = list(results.values())
+    # for i in range(len(results)):
+    #     html_string += "<div><h3>{}</h3><img src='{}' alt='Image not found'></div>".format(sites[i],pictures[i])
+    # return html_string
+    results = json.dumps(gallery(flask.request.args.get("query")))
+    # print(requests.args.get("query"))
+    return results
 
+@app.route("/details")
 def details_query():
-    results = json.dumps(details(site))
-    print(results)
+    results = json.dumps(details(flask.request.args.get("query")))
+    # print(results)
     return results
