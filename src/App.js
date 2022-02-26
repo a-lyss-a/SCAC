@@ -32,16 +32,6 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
-  return (
-    <div>
-    <Earth /> 
-    <ScrollReveal
-      ref={childRef}
-      children={() => (
-        <Switch>
-          <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
-        </Switch>
-      )} />
     </div>
   );
 }
