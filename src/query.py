@@ -17,11 +17,15 @@ def country_sites(country):
     return sites
 
 def gallery(country):
-    results = {}
+    results = []
+    gallery_keys = ("name", "image_url", "category")
     for n in country_sites(country):
+        item = {}
         for r in response:
             if r.get("name") == n:
-                results[n] = (r.get("image_url"), r.get("category"))
+                for k in gallery_keys:
+                    item[k] = r.get(k)
+                results.append(item)
     return results
 
 def details(site):
