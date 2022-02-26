@@ -9,6 +9,7 @@ export default function Earth() {
     const [hoverD, setHoverD] = useState();
     
     
+    
     useEffect(() => {
       // load data
       fetch('https://vasturiano.github.io/react-globe.gl/example/datasets/ne_110m_admin_0_countries.geojson').then(res => res.json()).then(setCountries);
@@ -27,6 +28,10 @@ export default function Earth() {
 
     colorScale.domain([0, maxVal]);
 
+    // function handleClick(polygon){
+    //   console.log(polygon.ISO_A2)
+    // }
+
     return <Globe
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
@@ -41,6 +46,11 @@ export default function Earth() {
         <b>${d.ADMIN} (${d.ISO_A2}):</b> <br />
       `}
       onPolygonHover={setHoverD}
+      onPolygonClick={({ properties: d }) => {
+        console.log(d.ISO_A2);
+      }
+        
+      }
       polygonsTransitionDuration={300}
     />;
 }
