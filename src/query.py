@@ -20,6 +20,36 @@ def get_Image_URL(name):
         if r.get("name") == name:
             return r.get("image_url")
 
+def get_Description(name):
+    for r in response:
+        if r.get("name") == name:
+            return r.get("short_description")
+
+def get_Location(name):
+    for r in response:
+        if r.get("name") == name:
+            return r.get("location")
+
+def get_Coordinates(name):
+    for r in response:
+        if r.get("name") == name:
+            return (r.get("longitude"), r.get("latitude"))
+
+def get_Region(name):
+    for r in response:
+        if r.get("name") == name:
+            return r.get("region")
+
+def get_States(name):
+    for r in response:
+        if r.get("name") == name:
+            return r.get("states")
+
+def get_Date_Inscribed(name):
+    for r in response:
+        if r.get("name") == name:
+            return r.get("date_inscribed")
+
 def zip(country):
     results = {}
     for n in country_sites(country):
@@ -42,13 +72,14 @@ app = Flask(__name__)
 @app.route("/")
 # def hello_world():
 #     return "<p>Hello, World!</p>"
-def query(country):
+def query():
     # results = zip(country)
     # html_string = ""
     # sites = list(results.keys())
-    # pictures = list(results.values)
+    # pictures = list(results.values())
     # for i in range(len(results)):
-    #     html_string += "<div><h3>%s</h3><img src='%s' alt='Image not found'></div>".format(sites[i],pictures[i])
+    #     html_string += "<div><h3>{}</h3><img src='{}' alt='Image not found'></div>".format(sites[i],pictures[i])
     # return html_string
     results = json.dumps(zip(country))
+    #print(results)
     return results
