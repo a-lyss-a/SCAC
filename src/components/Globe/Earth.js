@@ -46,6 +46,7 @@ export default function Earth() {
         <b>${d.ADMIN} (${d.ISO_A2}):</b> <br />
       `}
       onPolygonHover={setHoverD}
+      // The onclick works 
       onPolygonClick={({ properties: d }) => {
         console.log(d.ISO_A2);
       }
