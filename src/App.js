@@ -1,21 +1,31 @@
 import React from 'react';
 import Testimonial from './components/sections/Testimonial';
 import Gallery from './components/sections/Gallery';
+import MainPage from "./pages";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  Redirect
+} from "react-router-dom";
 
 // Layouts
 
 // Views 
-import Earth from './components/Globe/Earth';
+import Earth from './pages/Globe/Earth';
 
 
 const App = () => {
 
   return (
-    <div>
-    {/* <Earth />  */}
-    <Gallery country="Lithuania" /> 
-      {/* <Testimonial  /> */}
-    </div>
+    <Router>
+       {/* <Earth /> 
+       <Gallery country="Lithuania" /> 
+       <Testimonial  /> */}
+      <Route path="/" component={MainPage} />
+      <Route path="/Globe/Earth"component={Earth} />
+    </Router>
   );
 }
 
