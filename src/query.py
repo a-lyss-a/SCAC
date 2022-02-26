@@ -32,14 +32,14 @@ def zip(country):
 #     f.write(results)
 #     f.close
 
-# f = open("query-request.txt", "r")
-# country = f.read().strip()
-# query(country)
+f = open("query-request.txt", "r")
+country = f.read().strip()
+f.close()
 
 
 app = Flask(__name__)
 
-@app.route("/query")
+@app.route("/")
 # def hello_world():
 #     return "<p>Hello, World!</p>"
 def query(country):
