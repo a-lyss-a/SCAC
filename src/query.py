@@ -1,4 +1,5 @@
-from inspect import iscode
+from flask import Flask
+#from inspect import iscode
 from sre_parse import State
 import requests
 import json
@@ -25,12 +26,27 @@ def zip(country):
         results[n] = get_Image_URL(n)
     return results
 
-def query(country):
-    results = json.dumps(zip(country))
-    f = open("query-results.json2", "w")
-    f.write(results)
-    f.close
+# def query(country):
+#     results = json.dumps(zip(country))
+#     f = open("query-results.json2", "w")
+#     f.write(results)
+#     f.close
 
-f = open("query-request.txt", "r")
-country = f.read().strip()
-query(country)
+# f = open("query-request.txt", "r")
+# country = f.read().strip()
+# query(country)
+
+
+app = Flask(__name__)
+
+@app.route("/query")
+# def hello_world():
+#     return "<p>Hello, World!</p>"
+def query(country):
+    results = zip(country)
+    html_string = ""
+    sites = list(results.keys())
+    pictures = list(results.values)
+    for i in range(len(results)):
+        html_string += "<div><h3>%s</h3><img src='%s' alt='Image not found'></div>".format(sites[i],pictures[i])
+    return html_string
