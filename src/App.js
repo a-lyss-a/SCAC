@@ -19,26 +19,7 @@ import Heritage from './components/HeritageSite';
 const App = () => {
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Router>
-=======
     <Switch>
->>>>>>> withRouter
-       {/* <Earth /> 
-       <Testimonial  /> */}
-<<<<<<< HEAD
-      <Route path="/" component={MainPage} />
-      <Route path="/Globe/Earth"component={Earth} />
-    </Router>
-=======
-    <div>
-    {/* <Earth />  */}
-    {/* <Gallery country="Lithuania" />  */}
-      <Testimonial  />
-    </div>
->>>>>>> fca6118a9aa3d562c2bdd391e9b3bbe56105ed71
-=======
        {/* <Route path="/" component={Gallery} /> */}
        {/* <Route path="/" component={MainPage} />  */}
       <Route  path="/Globe/Earth">
@@ -50,7 +31,6 @@ const App = () => {
        
     </Switch>
 
->>>>>>> withRouter
   );
 }
 
