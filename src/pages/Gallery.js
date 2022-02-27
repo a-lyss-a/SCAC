@@ -21,7 +21,12 @@ const Gallery = (props) => {
   const list = []
 
   Array.prototype.forEach.call(countries, country => {
-    list.push(<Heritage name={country.name} image={country.image_url}></Heritage>)
+    list.push(
+    <Heritage 
+    name={country.name}
+    image={country.image_url} 
+      
+    />)
   });
 
   // let CountryList=[];
