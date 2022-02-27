@@ -12,7 +12,7 @@ def country_sites(country):
     sites = []
     for r in response:
         for ic in r.get("iso_codes"):
-            if ic.get("name") == country:
+            if ic.get("alpha_2_code") == country:
                 sites.append(r.get("name"))
     return sites
 
@@ -30,12 +30,14 @@ def gallery(country):
 
 def details(site_id):
     results = {}
-    result_keys = ("name", "image_url", "short_description", "location", "region", "states", "date_inscribed","danger")
+    result_keys = ("name", "image_url", "short_description", "location", "date_inscribed","danger")
     for r in response:
-        if r.get("name") == site_id:
+        if r.get("id") == site_id:
             for k in result_keys:
                 results[k] = r.get(k)
-            results["coordinates"] = "(" + r.get("longitude").toString() +', '+ r.get("latitude").toString() + ")"
+            results["coordinates"] = "(" + str(r.get("longitude")) +', '+ str(r.get("latitude")) + ")"
+            results["region"] = r.get("region").get("name")
+            results["states"] = (", ").join([i.get("name") for i in r.get("states")])
     return results
 
 # def query(country):
@@ -62,5 +64,5 @@ def gallery_query():
 
 @app.route("/details")
 def details_query():
-    results = json.dumps(details(flask.request.args.get("query")))
+    results = json.dumps(details(int(flask.request.args.get("query"))))
     return results
