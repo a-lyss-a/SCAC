@@ -1,7 +1,7 @@
 import React from 'react';
 import Details from './components/sections/Details';
 import Gallery from './components/sections/Gallery';
-
+import './App.css' 
 // Layouts
 
 // Views 
