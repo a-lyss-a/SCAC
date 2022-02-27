@@ -14,8 +14,9 @@ const Gallery = (props) => {
 
   return (
     <section>
-      {props.country}
-
+      <div className="gallery">
+        {props.country}
+      </div>
     </section>
   );
 }

@@ -7,6 +7,7 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+import './App.css';
 
 import Details from './components/sections/Details';
 
