@@ -30,3 +30,7 @@ h3 {
   padding: 15px;
   text-align: center;
 }
+
+#screen-middle {
+  vertical-align: middle !important;
+}
