@@ -1,5 +1,5 @@
 import React from 'react';
-import Testimonial from './components/sections/Testimonial';
+import Details from './components/sections/Details';
 import Gallery from './components/sections/Gallery';
 
 // Layouts
@@ -14,7 +14,7 @@ const App = () => {
     <div>
     {/* <Earth />  */}
     {/* <Gallery country="Lithuania" />  */}
-      <Testimonial  />
+      <Details  />
     </div>
   );
 }
