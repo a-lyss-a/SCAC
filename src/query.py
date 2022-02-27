@@ -12,7 +12,7 @@ def country_sites(country):
     sites = []
     for r in response:
         for ic in r.get("iso_codes"):
-            if ic.get("alpha_2_code") == country:
+            if ic.get("name") == country:
                 sites.append(r.get("name"))
     return sites
 
@@ -28,15 +28,14 @@ def gallery(country):
                 results.append(item)
     return results
 
-def details(site):
+def details(site_id):
     results = {}
     result_keys = ("name", "image_url", "short_description", "location", "region", "states", "date_inscribed","danger")
     for r in response:
-        if r.get("name") == site:
+        if r.get("name") == site_id:
             for k in result_keys:
                 results[k] = r.get(k)
             results["coordinates"] = "(" + r.get("longitude").toString() +', '+ r.get("latitude").toString() + ")"
-    print(results)
     return results
 
 # def query(country):
