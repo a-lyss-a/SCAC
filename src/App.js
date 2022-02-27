@@ -1,9 +1,8 @@
 import React from 'react';
 import Testimonial from './components/sections/Testimonial';
-import Gallery from './components/sections/Gallery';
+import Gallery from './pages/Gallery';
 import MainPage from "./pages";
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
   Link,
@@ -14,16 +13,21 @@ import {
 
 // Views 
 import Earth from './pages/Globe/Earth';
+import Heritage from './components/HeritageSite';
 
 
 const App = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Router>
+=======
+    <Switch>
+>>>>>>> withRouter
        {/* <Earth /> 
-       <Gallery country="Lithuania" /> 
        <Testimonial  /> */}
+<<<<<<< HEAD
       <Route path="/" component={MainPage} />
       <Route path="/Globe/Earth"component={Earth} />
     </Router>
@@ -34,6 +38,19 @@ const App = () => {
       <Testimonial  />
     </div>
 >>>>>>> fca6118a9aa3d562c2bdd391e9b3bbe56105ed71
+=======
+       {/* <Route path="/" component={Gallery} /> */}
+       {/* <Route path="/" component={MainPage} />  */}
+      <Route  path="/Globe/Earth">
+      <Earth /> 
+      </Route>
+      <Route  path="/Gallery">
+      <Gallery /> 
+      </Route> 
+       
+    </Switch>
+
+>>>>>>> withRouter
   );
 }
 
