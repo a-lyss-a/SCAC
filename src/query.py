@@ -30,7 +30,7 @@ def gallery(country):
 
 def details(site_id):
     results = {}
-    result_keys = ("name", "image_url", "short_description", "location", "date_inscribed","danger")
+    result_keys = ("name", "image_url", "short_description", "location", "date_inscribed")
     for r in response:
         if r.get("id") == site_id:
             for k in result_keys:
@@ -38,6 +38,10 @@ def details(site_id):
             results["coordinates"] = "(" + str(r.get("longitude")) +', '+ str(r.get("latitude")) + ")"
             results["region"] = r.get("region").get("name")
             results["states"] = (", ").join([i.get("name") for i in r.get("states")])
+            if(r.get("danger") != None):
+                results["danger"] = "Yes! It is in DANGER!"
+            else:
+                results["danger"] = "No! It is not in DANGER!"
     return results
 
 # def query(country):

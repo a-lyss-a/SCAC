@@ -79,30 +79,32 @@ const Testimonial = ({
           </div>
           <div>
             <table>
-              <tr>
-                <td>Endangered?</td>
-                <td>{details.danger}</td>
-              </tr>
-              {/* <tr>
-                <td>Region</td>
-                <td>{details.region}</td>
-              </tr> */}
-              {/* <tr>
-                <td>Countries</td>
-                <td>{details.states}</td>
-              </tr> */}
-              <tr>
-                <td>Location</td>
-                <td>{details.location}</td>
-              </tr>
-              <tr>
-                <td>Coordinates</td>
-                <td>{details.coordinates}</td>
-              </tr>
-              <tr>
-                <td>Date inscribed</td>
-                <td>{details.date_inscribed}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Endangered?</td>
+                  <td>{details.danger}</td>
+                </tr>
+                <tr>
+                  <td>Region</td>
+                  <td>{details.region}</td>
+                </tr>
+                <tr>
+                  <td>Countries</td>
+                  <td>{details.states}</td>
+                </tr>
+                <tr>
+                  <td>Location</td>
+                  <td>{details.location}</td>
+                </tr>
+                <tr>
+                  <td>Coordinates</td>
+                  <td>{details.coordinates}</td>
+                </tr>
+                <tr>
+                  <td>Date inscribed</td>
+                  <td>{details.date_inscribed}</td>
+                </tr>
+               </tbody> 
             </table>
           </div>
       </div>
