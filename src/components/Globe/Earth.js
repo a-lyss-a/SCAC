@@ -44,12 +44,15 @@ export default function Earth() {
       return (Math.random() * (max - min) + min).toFixed(4)
     }
 
-    function deSoviatizeAmerica(d){
+    function deSoviatizeAmericaAndUK(d){
         if (d.properties.ISO_A2==="US") {
           return 0.0015
         }
         if (d.properties.ISO_A2==="CA") {
           return 0.03
+        }
+        if (d.properties.ISO_A2==="GB") {
+          return 0.02
         }
         return (getVal(d)+0.01*d.properties.MAPCOLOR8-0.01*d.properties.MAPCOLOR13)
     }
@@ -63,7 +66,7 @@ export default function Earth() {
 
       polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')}
       polygonAltitude={d => d === hoverD ? 0.12 : 0.06}
-      polygonCapColor={d => d === hoverD ? 'steelblue' : colorScale(deSoviatizeAmerica(d))}
+      polygonCapColor={d => d === hoverD ? 'steelblue' : colorScale(deSoviatizeAmericaAndUK(d))}
       polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}
       polygonStrokeColor={() => '#111'}
       polygonLabel={({ properties: d }) => `
