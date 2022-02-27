@@ -3,13 +3,12 @@ import React from "react";
 
 
 const Heritage = (props) => {
-  console.log(props.name)
+  console.log(props)
   return(
-  <div>
+  <div onClick={() => window.location.href='/Details?query='+props.some_id}>
     <h1>{props.name}</h1>
     <img src={props.image} />
-    <p>{props.image}</p>
-    {/* <title>{props.name} </title>  */}
+
   </div>
 );
 }

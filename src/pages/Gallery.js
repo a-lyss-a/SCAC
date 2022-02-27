@@ -10,9 +10,6 @@ const Gallery = (props) => {
   const search = useLocation().search;
   const query = new URLSearchParams(search).get('query')
 
-  console.log('http://159.65.88.66/hack/gallery?query='+query)
-  console.log(query)
-
   useEffect(() => {
     fetch('http://159.65.88.66/hack/gallery?query='+query)
     .then(res => res.json())
@@ -22,18 +19,15 @@ const Gallery = (props) => {
   });;
   }, []);
 
-  
 
-  const list = []
+  let list = []
 
-  Array.prototype.forEach.call(countries, country => {
-    list.push(
-    <Heritage 
-      name={country.name}
-      image={country.image_url} 
+  Array.prototype.forEach.call(countries,country => {
 
-    />)
+    list.push(country)
   });
+
+  console.log(list)
 
   // let CountryList=[];
   // countries.forEach((country,index)=> {
@@ -47,7 +41,7 @@ const Gallery = (props) => {
   else{
     return (
       <div>
-        {list.map(temp => <Heritage name={temp.props.name} image={temp.props.image}></Heritage>)}
+        {list.map(temp => <Heritage name={temp.name} image={temp.image_url} some_id={temp.id}></Heritage>)}
       </div>
       // <p>Hi</p>
     );  
