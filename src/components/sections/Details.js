@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import classNames from 'classnames';
 import { SectionTilesProps } from '../../utils/SectionProps';
 import SectionHeader from './partials/SectionHeader';
+import {useLocation} from "react-router-dom"
 
 const propTypes = {
   ...SectionTilesProps.types
@@ -43,12 +44,12 @@ const Details = ({
     pushLeft && 'push-left'
   );
 
-  
+  const search = useLocation().search;
+  const query = new URLSearchParams(search).get('query')
 
-  const monument = "2532"
   const [details, setDetails] = useState([]);
   useEffect(()=>{
-   fetch('http://159.65.88.66/hack/details?query=' + monument,{
+   fetch('http://159.65.88.66/hack/details?query=' + query,{
      headers : {
        'Content-Type':'application/json'
      }
