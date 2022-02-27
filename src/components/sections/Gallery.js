@@ -8,7 +8,7 @@ const Gallery = (props) => {
   useEffect(() => {
     fetch("http://159.65.88.66/hack/gallery?query=ru").then(res => res.json()).then(data => console.log(data)).catch(function(error) {
       console.log(error);
-  });;
+  });
   }, []);
 
 

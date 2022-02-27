@@ -13,8 +13,8 @@ const App = () => {
   return (
     <div>
     {/* <Earth />  */}
-    <Gallery country="Lithuania" /> 
-      {/* <Testimonial  /> */}
+    {/* <Gallery country="Lithuania" />  */}
+      <Testimonial  />
     </div>
   );
 }

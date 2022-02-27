@@ -45,24 +45,28 @@ const Testimonial = ({
 
   const sectionHeader = {
     title: 'Customer testimonials',
-    paragraph: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.'
+    paragraph: 'HI'
   };
 
   const monument = "Tipasa"
-  
   const [details, setDetails] = useState([]);
-    useEffect(()=>{
-      fetch('http://localhost:5000/details/?query=' + monument,{
-        'methods':'GET',
-        headers : {
-          'Content-Type':'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(response => setDetails(response))
-    },[])
+  useEffect(() => {
+    fetch("http://159.65.88.66/hack/details?query=" + monument).then(res => res.json()).then(data => console.log(details)).catch(function(error) {
+      console.log(error);
+    })
+  }, []);
+    // useEffect(()=>{
+    //   fetch('http://localhost:5000/details/?query=' + monument,{
+    //     'methods':'GET',
+    //     headers : {
+    //       'Content-Type':'application/json'
+    //     }
+    //   })
+    //   .then(response => response.json())
+    //   .then(response => setDetails(response))
+    // },[])
   
-    console.log(details)
+    // console.log(details)
 
   return (
     <section
@@ -78,7 +82,7 @@ const Testimonial = ({
               <div className="tiles-item-inner">
                 <div className="testimonial-item-content">
                   <p className="text-sm mb-0">
-                    — Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum cillum dolore eu fugiat.
+                    {details}
                       </p>
                 </div>
                 <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
