@@ -9,6 +9,12 @@ import {Redirect} from 'react-router';
 //   Link,
 //   Redirect} from 'react-router-dom';
 
+function randomInteger(min, max) {
+  return (Math.random() * (max - min) + min).toFixed(4)
+}
+
+const data = randomInteger(0,0.1)
+
 
 export default function Earth() {
    
@@ -34,6 +40,22 @@ export default function Earth() {
 
     colorScale.domain([0, maxVal]);
 
+    function randomInteger(min, max) {
+      return (Math.random() * (max - min) + min).toFixed(4)
+    }
+
+    function deSoviatizeAmerica(d){
+        if (d.properties.ISO_A2==="US") {
+          return 0.0015
+        }
+        if (d.properties.ISO_A2==="CA") {
+          return 0.03
+        }
+        return (getVal(d)+0.01*d.properties.MAPCOLOR8-0.01*d.properties.MAPCOLOR13)
+    }
+
+
+
     return <Globe
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
@@ -41,7 +63,7 @@ export default function Earth() {
 
       polygonsData={countries.features.filter(d => d.properties.ISO_A2 !== 'AQ')}
       polygonAltitude={d => d === hoverD ? 0.12 : 0.06}
-      polygonCapColor={d => d === hoverD ? 'steelblue' : console.log(d)}
+      polygonCapColor={d => d === hoverD ? 'steelblue' : colorScale(deSoviatizeAmerica(d))}
       polygonSideColor={() => 'rgba(0, 100, 0, 0.15)'}
       polygonStrokeColor={() => '#111'}
       polygonLabel={({ properties: d }) => `
