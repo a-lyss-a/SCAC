@@ -66,11 +66,44 @@ const Testimonial = ({
     <div className="container">
       <div className={innerClasses}>
         <SectionHeader data={{title: details.name}} className="center-content" />
-          <div>
-            <img src={details.image_url}/>
-            <p className="text-sm mb-0">
+          <div className="center-content">
+            <img className="center-content" src={details.image_url}/>
+            <p className="text-sm mb-0" id="desc-box">
               {details.short_description}
             </p>
+          </div>
+          <div>
+            <p className="text-sm mb-0" id="desc-box">
+              {details.short_description}
+            </p>
+          </div>
+          <div>
+            <table>
+              <tr>
+                <td>Endangered?</td>
+                <td>{details.danger}</td>
+              </tr>
+              {/* <tr>
+                <td>Region</td>
+                <td>{details.region}</td>
+              </tr> */}
+              {/* <tr>
+                <td>Countries</td>
+                <td>{details.states}</td>
+              </tr> */}
+              <tr>
+                <td>Location</td>
+                <td>{details.location}</td>
+              </tr>
+              <tr>
+                <td>Coordinates</td>
+                <td>{details.coordinates}</td>
+              </tr>
+              <tr>
+                <td>Date inscribed</td>
+                <td>{details.date_inscribed}</td>
+              </tr>
+            </table>
           </div>
       </div>
     </div>

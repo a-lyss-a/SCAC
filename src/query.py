@@ -30,12 +30,13 @@ def gallery(country):
 
 def details(site):
     results = {}
-    result_keys = ("name", "image_url", "short_description", "location", "region", "states", "date_inscribed")
+    result_keys = ("name", "image_url", "short_description", "location", "region", "states", "date_inscribed","danger")
     for r in response:
         if r.get("name") == site:
             for k in result_keys:
                 results[k] = r.get(k)
-            results["coordinates"] = (r.get("longitude"), r.get("latitude"))
+            results["coordinates"] = "(" + r.get("longitude").toString() +', '+ r.get("latitude").toString() + ")"
+    print(results)
     return results
 
 # def query(country):
