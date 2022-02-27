@@ -1,13 +1,19 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import Globe from 'react-globe.gl'
 import * as d3 from 'd3';
+import {
+  useNavigate,
+  Route,
+  Switch,
+  Link,
+  Redirect} from 'react-router-dom';
 
 
 export default function Earth() {
    
     const [countries, setCountries] = useState({ features: []});
     const [hoverD, setHoverD] = useState();
-    
+    const navigate = useNavigate();
     
     
     useEffect(() => {
@@ -45,10 +51,12 @@ export default function Earth() {
       polygonLabel={({ properties: d }) => `
         <b>${d.ADMIN} (${d.ISO_A2}):</b> <br />
       `}
+
       onPolygonHover={setHoverD}
       // The onclick works 
       onPolygonClick={({ properties: d }) => {
-        console.log(d.ISO_A2);
+       console.log("hello")
+        navigate('/Gallery?props={d.ISO_A2}');
       }
         
       }

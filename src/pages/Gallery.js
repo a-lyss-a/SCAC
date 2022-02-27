@@ -24,7 +24,7 @@ const Gallery = (props) => {
     <Heritage 
     name={country.name}
     image={country.image_url} 
-      
+    
     />)
   });
 

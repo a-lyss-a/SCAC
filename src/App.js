@@ -3,7 +3,6 @@ import Testimonial from './components/sections/Testimonial';
 import Gallery from './pages/Gallery';
 import MainPage from "./pages";
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
   Link,
@@ -20,13 +19,19 @@ import Heritage from './components/HeritageSite';
 const App = () => {
 
   return (
-    <Router>
+    <Switch>
        {/* <Earth /> 
        <Testimonial  /> */}
-       <Route path="/" component={Gallery} />
+       {/* <Route path="/" component={Gallery} /> */}
        {/* <Route path="/" component={MainPage} />  */}
-      {/* <Route path="/Globe/Earth" component={Earth} /> */}
-    </Router>
+      <Route  path="/Globe/Earth">
+      <Earth /> 
+      </Route>
+      <Route  path="/Gallery">
+      <Gallery /> 
+      </Route> 
+       
+    </Switch>
   );
 }
 
