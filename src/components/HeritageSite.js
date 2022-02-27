@@ -8,8 +8,8 @@ const Heritage = (props) => {
   <div>
     <h1>{props.name}</h1>
     <img src={props.image} />
-    <p>{props.image}</p>
-    {/* <title>{props.name} </title>  */}
+    
+    <p>{props.key}</p>
   </div>
 );
 }
