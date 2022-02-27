@@ -10,9 +10,6 @@ const Gallery = (props) => {
   const search = useLocation().search;
   const query = new URLSearchParams(search).get('query')
 
-  console.log('http://159.65.88.66/hack/gallery?query='+query)
-  console.log(query)
-
   useEffect(() => {
     fetch('http://159.65.88.66/hack/gallery?query='+query)
     .then(res => res.json())
@@ -31,6 +28,7 @@ const Gallery = (props) => {
     <Heritage 
       name={country.name}
       image={country.image_url} 
+      id={country.id}
 
     />)
   });
