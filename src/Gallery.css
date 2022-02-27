@@ -1,5 +1,8 @@
 h3 {
-   color: rgb(150, 233, 41) !important; 
+   font-size: 25px !important ;
+   /* color: rgb(150, 233, 41) !important; */
+   color: rgb(100, 224, 152) !important;
+   /* padding-bottom:;  */
 }
 
 .gallery {
@@ -8,23 +11,28 @@ h3 {
   float: left;
   width: 100%; */
   /* border: 1px solid #4B4B4B; */
+  
+
   font-weight: 100;
   align-content: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75em;
-  /* grid-template-rows: repeat(3, auto); */
+  /* grid-template-rows: repeat(3, 1fr); */
   width: 100%;
+  
 }
 
 .heritage:hover {
-  border: 0.25em solid rgb(162, 233, 133)
+  border: 0.1em solid rgb(162, 233, 133)
 }
 
 .gallery img {
   /* border: 1px solid #A1A1A1; */
+  
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 45vh;
 }
 
 .desc {
