@@ -28,14 +28,20 @@ def gallery(country):
                 results.append(item)
     return results
 
-def details(site):
+def details(site_id):
     results = {}
-    result_keys = ("name", "image_url", "short_description", "location", "region", "states", "date_inscribed")
+    result_keys = ("name", "image_url", "short_description", "location", "date_inscribed")
     for r in response:
-        if r.get("name") == site:
+        if r.get("id") == site_id:
             for k in result_keys:
                 results[k] = r.get(k)
-            results["coordinates"] = (r.get("longitude"), r.get("latitude"))
+            results["coordinates"] = "(" + str(r.get("longitude")) +', '+ str(r.get("latitude")) + ")"
+            results["region"] = r.get("region").get("name")
+            results["states"] = (", ").join([i.get("name") for i in r.get("states")])
+            if(r.get("danger") != None):
+                results["danger"] = "Yes! It is in DANGER!"
+            else:
+                results["danger"] = "No! It is not in DANGER!"
     return results
 
 # def query(country):
@@ -62,5 +68,5 @@ def gallery_query():
 
 @app.route("/details")
 def details_query():
-    results = json.dumps(details(flask.request.args.get("query")))
+    results = json.dumps(details(int(flask.request.args.get("query"))))
     return results

@@ -19,6 +19,7 @@ import Earth from './pages/Globe/Earth';
 const App = () => {
 
   return (
+<<<<<<< HEAD
     <Router>
        {/* <Earth /> 
        <Gallery country="Lithuania" /> 
@@ -26,6 +27,13 @@ const App = () => {
       <Route path="/" component={MainPage} />
       <Route path="/Globe/Earth"component={Earth} />
     </Router>
+=======
+    <div>
+    {/* <Earth />  */}
+    {/* <Gallery country="Lithuania" />  */}
+      <Testimonial  />
+    </div>
+>>>>>>> fca6118a9aa3d562c2bdd391e9b3bbe56105ed71
   );
 }
 
