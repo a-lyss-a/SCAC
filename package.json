@@ -10,13 +10,13 @@
     "react-dom": "^16.13.1",
     "react-ga": "^2.7.0",
     "react-globe.gl": "^2.21.3",
-    "react-router-dom": "^5.1.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
     "sass": "^1.49.7"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cruip/open-react-template.git"
+    "url": "git+https://github.com/a-lyss-a/SCAC.git"
   },
   "scripts": {
     "start": "react-scripts start",
