@@ -3,13 +3,15 @@ import React from "react";
 
 
 const Heritage = (props) => {
-  console.log(props.name)
+  console.log(props.random)
+
   return(
-  <div onClick={() => window.location.href='/Gallery?query='+props.id}>
+  <div onClick={() => window.location.href='/Details?query='+props.id}>
     <h1>{props.name}</h1>
-    <img src={props.image} />
-    <p>{props.image}</p>
-    {/* <title>{props.name} </title>  */}
+    <h1>{props.age}</h1>
+    {/* <img src={props.image} /> */}
+    {/* <p>{props.image}</p> */}
+    {/* <p>{props.name}</p> */}
   </div>
 );
 }

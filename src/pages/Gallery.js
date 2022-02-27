@@ -19,17 +19,18 @@ const Gallery = (props) => {
   });;
   }, []);
 
-  
 
-  const list = []
+  let list = []
 
   Array.prototype.forEach.call(countries, country => {
+
     list.push(
     <Heritage 
-      name={country.name}
-      image={country.image_url} 
-      id={country.id}
 
+      name={country.name}
+      age={country.id}
+      // image={country.image_url} 
+      
     />)
   });
 
