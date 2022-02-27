@@ -1,6 +1,6 @@
 import React from 'react';
 import Gallery from './pages/Gallery';
-import MainPage from "./pages";
+
 import {
   Route,
   Switch,
