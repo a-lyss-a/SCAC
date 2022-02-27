@@ -16,12 +16,20 @@ const Gallery = (props) => {
   });;
   }, []);
 
-  const handleCountry = (prevState) => {
-    setCountries(prevState.map((country) => {
-      image = country.image_url
-      name = country.name
-    }))
-  }
+
+  const list = []
+
+  Array.prototype.forEach.call(countries, country => {
+    list.push(<Heritage name={country.name} image={country.image_url}></Heritage>)
+  });
+
+  console.log(list)
+
+  // let CountryList=[];
+  // countries.forEach((country,index)=> {
+  //   CountryList.push(<Heritage></Heritage>)
+  // })
+
   // console.log(countries);
   if (countries[0] === undefined){
     console.log("wtf is wrong")
@@ -29,10 +37,9 @@ const Gallery = (props) => {
   else{
     return (
       <div>
-        <Heritage
-          {handleCountry}
-        />
+        {list.map(temp => <Heritage name={temp.props.name} image={temp.props.image}></Heritage>)}
       </div>
+      // <p>Hi</p>
     );  
   }
   return(<h1>fuck us </h1>)
