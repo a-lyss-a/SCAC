@@ -52,7 +52,7 @@ const Gallery = (props) => {
       // <p>Hi</p>
     );  
   }
-  return(<h1>fuck us </h1>)
+  return(<h1>This country has NO CULTURE╰（‵□′）╯</h1>)
 }
 
 export default Gallery;
