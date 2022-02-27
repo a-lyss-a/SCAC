@@ -24,7 +24,7 @@ const App = () => {
        <Gallery country="Lithuania" /> 
        <Testimonial  /> */}
       <Route path="/" component={MainPage} />
-      <Route path="/Globe/Earth"component={Earth} />
+      <Route path="/Globe/Earth" component={Earth} />
     </Router>
   );
 }

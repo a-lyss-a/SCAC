@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import classNames from 'classnames';
 import { SectionTilesProps } from '../../utils/SectionProps';
 import SectionHeader from './partials/SectionHeader';
@@ -47,6 +47,22 @@ const Testimonial = ({
     title: 'Customer testimonials',
     paragraph: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.'
   };
+
+  const monument = "Tipasa"
+  
+  const [details, setDetails] = useState([]);
+    useEffect(()=>{
+      fetch('http://localhost:5000/details/?query=' + monument,{
+        'methods':'GET',
+        headers : {
+          'Content-Type':'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(response => setDetails(response))
+    },[])
+  
+    console.log(details)
 
   return (
     <section
