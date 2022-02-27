@@ -25,14 +25,10 @@ const Gallery = (props) => {
   Array.prototype.forEach.call(countries,country => {
 
     list.push(
-    <Heritage 
-
-      name={country.name}
-      key={country.id}
-      image={country.image_url} 
-      
-    />)
+    country)
   });
+
+  console.log(list)
 
   // let CountryList=[];
   // countries.forEach((country,index)=> {
@@ -46,7 +42,7 @@ const Gallery = (props) => {
   else{
     return (
       <div>
-        {list.map(temp => <Heritage name={temp.props.name} image={temp.props.image}></Heritage>)}
+        {list.map(temp => <Heritage name={temp.name} image={temp.image_url} some_id={temp.id}></Heritage>)}
       </div>
       // <p>Hi</p>
     );  
