@@ -43,6 +43,8 @@ const Details = ({
     pushLeft && 'push-left'
   );
 
+  
+
   const monument = "2532"
   const [details, setDetails] = useState([]);
   useEffect(()=>{

@@ -24,6 +24,9 @@ const App = () => {
        <Testimonial  /> */}
        {/* <Route path="/" component={Gallery} /> */}
        {/* <Route path="/" component={MainPage} />  */}
+       <Route  path="/Details">
+      <Details /> 
+      </Route>
       <Route  path="/Globe/Earth">
       <Earth /> 
       </Route>

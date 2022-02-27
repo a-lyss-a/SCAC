@@ -24,8 +24,7 @@ const Gallery = (props) => {
 
   Array.prototype.forEach.call(countries,country => {
 
-    list.push(
-    country)
+    list.push(country)
   });
 
   console.log(list)
