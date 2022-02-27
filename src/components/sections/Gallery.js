@@ -6,7 +6,7 @@ const Gallery = (props) => {
   // const [countries, setCountries] = useState({ features: []});
   
   useEffect(() => {
-    fetch("http://localhost:5000/gallery?query=ru")
+    fetch("http://159.65.88.66/hack/gallery?query=ru")
     .then(res => res.json())
     .then(data => console.log(data))
     .catch(function(error) {

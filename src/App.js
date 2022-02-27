@@ -21,8 +21,8 @@ const App = () => {
   return (
     <Router>
        {/* <Earth /> 
-       <Gallery country="Lithuania" /> 
        <Testimonial  /> */}
+       <Gallery  /> 
       <Route path="/" component={MainPage} />
       <Route path="/Globe/Earth" component={Earth} />
     </Router>
