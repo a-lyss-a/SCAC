@@ -10,7 +10,6 @@ import {
 
 import Details from './components/sections/Details';
 
-
 // Layouts
 
 // Views 
@@ -21,6 +20,7 @@ import Heritage from './components/HeritageSite';
 const App = () => {
 
   return (
+
     <Switch>
        {/* <Route path="/" component={Gallery} /> */}
        {/* <Route path="/" component={MainPage} />  */}
