@@ -1,6 +1,6 @@
 import React from 'react';
 import Testimonial from './components/sections/Testimonial';
-import Gallery from './components/sections/Gallery';
+import Gallery from './pages/Gallery';
 import MainPage from "./pages";
 import {
   BrowserRouter as Router,
@@ -14,6 +14,7 @@ import {
 
 // Views 
 import Earth from './pages/Globe/Earth';
+import Heritage from './components/HeritageSite';
 
 
 const App = () => {
@@ -22,9 +23,9 @@ const App = () => {
     <Router>
        {/* <Earth /> 
        <Testimonial  /> */}
-       <Gallery  /> 
-      <Route path="/" component={MainPage} />
-      <Route path="/Globe/Earth" component={Earth} />
+       <Route path="/" component={Gallery} />
+       {/* <Route path="/" component={MainPage} />  */}
+      {/* <Route path="/Globe/Earth" component={Earth} /> */}
     </Router>
   );
 }
