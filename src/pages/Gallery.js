@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Heritage from '../components/HeritageSite';
 import {useLocation} from "react-router-dom"
+import "../Gallery.css"
 
 let countryCode = sessionStorage.getItem('ISO');
 
@@ -40,8 +41,13 @@ const Gallery = (props) => {
   }
   else{
     return (
-      <div>
-        {list.map(temp => <Heritage name={temp.name} image={temp.image_url} some_id={temp.id}></Heritage>)}
+      <div className="gallery">
+        {list.map(temp => 
+        <Heritage 
+          name={temp.name} 
+          image={temp.image_url} 
+          some_id={temp.id}  
+        />)}
       </div>
       // <p>Hi</p>
     );  
