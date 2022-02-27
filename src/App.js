@@ -7,9 +7,9 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+import './App.css';
 
 import Details from './components/sections/Details';
-
 
 // Layouts
 
@@ -21,6 +21,7 @@ import Heritage from './components/HeritageSite';
 const App = () => {
 
   return (
+
     <Switch>
        {/* <Route path="/" component={Gallery} /> */}
        {/* <Route path="/" component={MainPage} />  */}

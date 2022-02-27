@@ -18,7 +18,7 @@ def country_sites(country):
 
 def gallery(country):
     results = []
-    gallery_keys = ("name", "image_url", "category")
+    gallery_keys = ("name", "image_url", "category", "id")
     for n in country_sites(country):
         item = {}
         for r in response:
