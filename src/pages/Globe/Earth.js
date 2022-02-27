@@ -49,6 +49,8 @@ export default function Earth() {
       // The onclick works 
       onPolygonClick={({ properties: d }) => {
         console.log(d.ISO_A2);
+        sessionStorage.setItem("ISO", d.ISO_A2)
+        // change route
       }
         
       }

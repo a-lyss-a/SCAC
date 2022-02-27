@@ -21,11 +21,12 @@ const App = () => {
 
   return (
     <Router>
-       {/* <Earth /> 
-       <Testimonial  /> */}
-       <Route path="/" component={Gallery} />
+       <Earth /> 
+       {/* <Testimonial  /> */} 
+       {/* <Route path="/" component={Earth} /> */}
+       <Route path="/gallery" component={Gallery} /> 
        {/* <Route path="/" component={MainPage} />  */}
-      {/* <Route path="/Globe/Earth" component={Earth} /> */}
+       {/* <Route path="/Globe/Earth" component={Earth} />  */}
     </Router>
   );
 }

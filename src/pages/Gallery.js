@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Heritage from '../components/HeritageSite';
 
-
+let countryCode = sessionStorage.getItem('ISO');
 
 const Gallery = (props) => {
   const [countries, setCountries] = useState({ features: []});
   
 
   useEffect(() => {
-    fetch("http://159.65.88.66/hack/gallery?query=ru")
+    fetch("http://159.65.88.66/hack/gallery?query="+countryCode)
     .then(res => res.json())
     .then(setCountries)
     .catch(function(error) {
@@ -17,13 +17,12 @@ const Gallery = (props) => {
   }, []);
 
 
+
   const list = []
 
   Array.prototype.forEach.call(countries, country => {
     list.push(<Heritage name={country.name} image={country.image_url}></Heritage>)
   });
-
-  console.log(list)
 
   // let CountryList=[];
   // countries.forEach((country,index)=> {
