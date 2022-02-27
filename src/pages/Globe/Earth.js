@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import Globe from 'react-globe.gl'
 import * as d3 from 'd3';
-import {
-  useNavigate,
-  Route,
-  Switch,
-  Link,
-  Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router';
+// import {
+//   useNavigate,
+//   Route,
+//   Switch,
+//   Link,
+//   Redirect} from 'react-router-dom';
 
 
 export default function Earth() {
    
     const [countries, setCountries] = useState({ features: []});
     const [hoverD, setHoverD] = useState();
-    const navigate = useNavigate();
     
     
     useEffect(() => {
@@ -34,10 +34,6 @@ export default function Earth() {
 
     colorScale.domain([0, maxVal]);
 
-    // function handleClick(polygon){
-    //   console.log(polygon.ISO_A2)
-    // }
-
     return <Globe
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
@@ -55,11 +51,17 @@ export default function Earth() {
       onPolygonHover={setHoverD}
       // The onclick works 
       onPolygonClick={({ properties: d }) => {
-       console.log("hello")
-        navigate('/Gallery?props={d.ISO_A2}');
-      }
-        
-      }
+      //  console.log("hello")
+      //   navigate('/Gallery?props={d.ISO_A2}');
+        // console.log(d.ISO_A2);
+        // sessionStorage.setItem("ISO", d.ISO_A2)
+        // change route
+      // }
+      window.location.href='/Gallery?query='+d.ISO_A2
+
+
+      }}
+
       polygonsTransitionDuration={300}
     />;
 }

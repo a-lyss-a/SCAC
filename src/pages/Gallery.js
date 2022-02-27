@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Heritage from '../components/HeritageSite';
+import {useLocation} from "react-router-dom"
 
-
+let countryCode = sessionStorage.getItem('ISO');
 
 const Gallery = (props) => {
   const [countries, setCountries] = useState({ features: []});
   
+  const search = useLocation().search;
+  const query = new URLSearchParams(search).get('query')
+
+  console.log('http://159.65.88.66/hack/gallery?query='+query)
+  console.log(query)
 
   useEffect(() => {
-    fetch("http://159.65.88.66/hack/gallery?query=ru")
+    fetch('http://159.65.88.66/hack/gallery?query='+query)
     .then(res => res.json())
     .then(setCountries)
     .catch(function(error) {
@@ -16,19 +22,18 @@ const Gallery = (props) => {
   });;
   }, []);
 
+  
 
   const list = []
 
   Array.prototype.forEach.call(countries, country => {
     list.push(
     <Heritage 
-    name={country.name}
-    image={country.image_url} 
-    
+      name={country.name}
+      image={country.image_url} 
+
     />)
   });
-
-  console.log(list)
 
   // let CountryList=[];
   // countries.forEach((country,index)=> {
