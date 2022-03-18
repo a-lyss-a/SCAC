@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  web:
+    # needs this otherwise react app stops immediately
+    # https://github.com/facebook/create-react-app/issues/8688
+    stdin_open: true
+
+    build: ./frontend/
+    volumes:
+      - ./frontend/:/usr/src/app/
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+
+  server:
+    build: ./backend/
+    volumes:
+      - ./backend/:/usr/src/app/
+    environment: 
+      PORT: 8085
+    ports:
+      - 8085:8085
