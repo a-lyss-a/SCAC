@@ -1,7 +1,6 @@
 import flask
-#from flask import Flask
-#from inspect import iscode
 from sre_parse import State
+from flask_cors import CORS, cross_origin
 import requests
 import json
 
@@ -44,29 +43,16 @@ def details(site_id):
                 results["danger"] = "No! It is not in DANGER!"
     return results
 
-# def query(country):
-#     results = json.dumps(zip(country))
-#     f = open("query-results.json2", "w")
-#     f.write(results)
-#     f.close
-
-#country = "cn"
-
 app = flask.Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route("/gallery")
+@app.route("/hack/gallery")
 def gallery_query():
-    # results = gallery(country)
-    # html_string = ""
-    # sites = list(results.keys())
-    # pictures = list(results.values())
-    # for i in range(len(results)):
-    #     html_string += "<div><h3>{}</h3><img src='{}' alt='Image not found'></div>".format(sites[i],pictures[i])
-    # return html_string
-    results = json.dumps(gallery(flask.request.args.get("query")))
+    results = json.dumps(gallery(flask.request.args.get("query").lower()))
     return results
 
-@app.route("/details")
+@app.route("/hack/details")
 def details_query():
     results = json.dumps(details(int(flask.request.args.get("query"))))
     return results
