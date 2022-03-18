@@ -49,7 +49,7 @@ const Details = ({
 
   const [details, setDetails] = useState([]);
   useEffect(()=>{
-   fetch('http://159.65.88.66/hack/details?query=' + query,{
+   fetch('https://spe-space.duckdns.org/hack/details?query=' + query,{
      headers : {
        'Content-Type':'application/json'
      }

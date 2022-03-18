@@ -12,7 +12,7 @@ const Gallery = (props) => {
   const query = new URLSearchParams(search).get('query')
 
   useEffect(() => {
-    fetch('http://159.65.88.66/hack/gallery?query='+query)
+    fetch('https://spe-space.duckdns.org/hack/gallery?query='+query)
     .then(res => res.json())
     .then(setCountries)
     .catch(function(error) {
