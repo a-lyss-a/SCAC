@@ -1,8 +1,10 @@
 import flask
-from sre_parse import State
-from flask_cors import CORS, cross_origin
 import requests
 import json
+import os
+from sre_parse import State
+from flask_cors import CORS, cross_origin
+
 
 response = requests.get("http://unesco-api.herokuapp.com/sites").json()
 
@@ -57,4 +59,4 @@ def details_query():
     return results
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=os.getenv('PORT'))
