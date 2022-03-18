@@ -25,6 +25,7 @@ const App = () => {
     <Switch>
        {/* <Route path="/" component={Gallery} /> */}
        {/* <Route path="/" component={MainPage} />  */}
+       <Redirect exact from="/" to="/Globe/Earth"/>
        <Route  path="/Details">
       <Details /> 
       </Route>
