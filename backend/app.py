@@ -4,8 +4,11 @@ from flask_cors import CORS, cross_origin
 import requests
 import json
 
-url = "http://unesco-api.herokuapp.com/sites"
-response = requests.get(url).json()
+response = requests.get("http://unesco-api.herokuapp.com/sites").json()
+
+app = flask.Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 def country_sites(country):
     sites = []
@@ -43,10 +46,6 @@ def details(site_id):
                 results["danger"] = "No! It is not in DANGER!"
     return results
 
-app = flask.Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
-
 @app.route("/hack/gallery")
 def gallery_query():
     results = json.dumps(gallery(flask.request.args.get("query").lower()))
@@ -56,3 +55,6 @@ def gallery_query():
 def details_query():
     results = json.dumps(details(int(flask.request.args.get("query"))))
     return results
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0")
