@@ -1,12 +1,16 @@
 
-## To run the application :
+# To run the application :
 
    ```sh
    docker compose up -d --build
    ```
 
+The application will be running at [localhost:3000](http://localhost:3000)
 
-## Libraries and APIs used
+<br>
+<br>
+
+# Libraries and APIs used
 
 - React-globe.gl (https://github.com/vasturiano/react-globe.gl)
 - unesco-api (unesco-api.herokuapp.com/sites)
